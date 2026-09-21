@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instituto Educativo | Bienvenidos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Encabezado y Navegación -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <h1>Instituto <span>Educativo</span></h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#oferta">Oferta Académica</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección de Bienvenida (Hero) -->
+    <section id="inicio" class="hero">
+        <div class="hero-content container">
+            <h2>Formando a los líderes del futuro</h2>
+            <p>Educación de calidad, valores y excelencia académica al servicio de nuestra comunidad.</p>
+            <a href="#contacto" class="btn">Solicitar Información</a>
+        </div>
+    </section>
+
+    <!-- Sección Nosotros -->
+    <section id="nosotros" class="section container">
+        <h2>Sobre Nuestro Instituto</h2>
+        <div class="grid-2">
+            <div>
+                <h3>Nuestra Misión</h3>
+                <p>Brindar una educación integral de alta calidad que potencie el desarrollo académico, humano y tecnológico de nuestros estudiantes.</p>
+            </div>
+            <div>
+                <h3>Nuestra Visión</h3>
+                <p>Ser una institución educativa referente en innovación pedagógica, reconocida por la excelencia de sus egresados.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Oferta Académica -->
+    <section id="oferta" class="section bg-light">
+        <div class="container">
+            <h2>Oferta Académica</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Nivel Secundario / Bachillerato</h3>
+                    <p>Formación académica sólida con orientación en ciencias, tecnología y humanidades.</p>
+                </div>
+                <div class="card">
+                    <h3>Carreras Técnicas / Cursos</h3>
+                    <p>Programas prácticos con rápida salida laboral adaptados a las exigencias del mercado.</p>
+                </div>
+                <div class="card">
+                    <h3>Educación Continua</h3>
+                    <p>Diplomados, talleres y capacitaciones para profesionales y la comunidad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="section container">
+        <h2>Contacto e Inscripciones</h2>
+        <div class="grid-2">
+            <div class="contact-info">
+                <h3>Información de Contacto</h3>
+                <p><strong>Dirección:</strong> Av. Principal #123, Ciudad</p>
+                <p><strong>Teléfono:</strong> +123 456 7890</p>
+                <p><strong>Correo:</strong> contacto@instituto.edu</p>
+                <p><strong>Horario de atención:</strong> Lunes a Viernes de 8:00 a 16:00 hs.</p>
+            </div>
+            <!-- Formulario listo para usar con Formspree (Gratis) -->
+            <form action="https://formspree.io/f/tu-codigo-aqui" method="POST" class="contact-form">
+                <input type="text" name="nombre" placeholder="Nombre completo" required>
+                <input type="email" name="email" placeholder="Correo electrónico" required>
+                <input type="tel" name="telefono" placeholder="Teléfono de contacto">
+                <textarea name="mensaje" placeholder="Escribe tu consulta o mensaje..." rows="4" required></textarea>
+                <button type="submit" class="btn">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Instituto Educativo. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
