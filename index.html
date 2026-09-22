@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INEB CENTRO CAJOLÁ | Bienvenidos</title>
+    <title>Instituto Educativo | Bienvenidos</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,13 +12,14 @@
     <header>
         <div class="container nav-container">
             <div class="logo">
-                <h1>INEB <span>CENTRO CAJOLÁ</span></h1>
+                <h1>Instituto <span>Educativo</span></h1>
             </div>
             <nav>
                 <ul class="nav-links">
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#nosotros">Nosotros</a></li>
                     <li><a href="#oferta">Oferta Académica</a></li>
+                    <li><a href="#galeria">Galería</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
@@ -70,35 +71,75 @@
         </div>
     </section>
 
-    <!-- Sección Contacto -->
-    <section id="contacto" class="section container">
-        <h2>Contacto e Inscripciones</h2>
-        <div class="grid-2">
-            <div class="contact-info">
-                <h3>Información de Contacto</h3>
-                <p><strong>Dirección:</strong> Av. Principal #123, Ciudad</p>
-                <p><strong>Teléfono:</strong> +123 456 7890</p>
-                <p><strong>Correo:</strong> contacto@instituto.edu</p>
-                <p><strong>Horario de atención:</strong> Lunes a Viernes de 8:00 a 16:00 hs.</p>
+    <!-- NUEVA SECCIÓN: Galería de Fotos y Videos -->
+    <section id="galeria" class="section container">
+        <h2>Galería de Fotos y Videos</h2>
+        
+        <!-- Catálogo de Fotografías -->
+        <h3 class="subsection-title">Nuestras Instalaciones y Eventos</h3>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=600&q=80" alt="Instalaciones del Instituto">
+                <p class="caption">Instalaciones principales</p>
             </div>
-            <!-- Formulario listo para usar con Formspree (Gratis) -->
-            <form action="https://formspree.io/f/tu-codigo-aqui" method="POST" class="contact-form">
-                <input type="text" name="nombre" placeholder="Nombre completo" required>
-                <input type="email" name="email" placeholder="Correo electrónico" required>
-                <input type="tel" name="telefono" placeholder="Teléfono de contacto">
-                <textarea name="mensaje" placeholder="Escribe tu consulta o mensaje..." rows="4" required></textarea>
-                <button type="submit" class="btn">Enviar Mensaje</button>
-            </form>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="Estudiantes en el laboratorio">
+                <p class="caption">Laboratorio de ciencias</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="Clases en aula">
+                <p class="caption">Aulas interactivas</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="Biblioteca">
+                <p class="caption">Biblioteca e investigación</p>
+            </div>
+        </div>
+
+        <!-- Catálogo de Videos -->
+        <h3 class="subsection-title video-title">Videos Institucionales</h3>
+        <div class="video-grid">
+            <div class="video-item">
+                <!-- Reemplaza src con el enlace embed de YouTube de tu instituto -->
+                <iframe src="https://www.youtube-nocookie.com/embed/ScMzIvxBSi4" title="Video Institucional" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p class="caption">Recorrido por el instituto</p>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube-nocookie.com/embed/ScMzIvxBSi4" title="Actividades Estudiantiles" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p class="caption">Eventos y actividades</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="section bg-light">
+        <div class="container">
+            <h2>Contacto e Inscripciones</h2>
+            <div class="grid-2">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <p><strong>Dirección:</strong> Av. Principal #123, Ciudad</p>
+                    <p><strong>Teléfono:</strong> +123 456 7890</p>
+                    <p><strong>Correo:</strong> contacto@instituto.edu</p>
+                    <p><strong>Horario de atención:</strong> Lunes a Viernes de 8:00 a 16:00 hs.</p>
+                </div>
+                <form action="https://formspree.io/f/tu-codigo-aqui" method="POST" class="contact-form">
+                    <input type="text" name="nombre" placeholder="Nombre completo" required>
+                    <input type="email" name="email" placeholder="Correo electrónico" required>
+                    <input type="tel" name="telefono" placeholder="Teléfono de contacto">
+                    <textarea name="mensaje" placeholder="Escribe tu consulta o mensaje..." rows="4" required></textarea>
+                    <button type="submit" class="btn">Enviar Mensaje</button>
+                </form>
+            </div>
         </div>
     </section>
 
     <!-- Pie de página -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 INEB CENTRO CAJOLÁ. Todos los derechos reservados.</p>
+            <p>&copy; 2026 Instituto Educativo. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
