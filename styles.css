@@ -2,6 +2,14 @@
    ESTILOS INSTITUCIONALES (ROJO, AZUL Y BLANCO)
    ========================================== */
 
+/* Compensación para que el encabezado fijo no tape el título de las secciones */
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    scroll-margin-top: 100px; /* Ajusta la distancia según la altura del encabezado */
+}
 * {
     margin: 0;
     padding: 0;
