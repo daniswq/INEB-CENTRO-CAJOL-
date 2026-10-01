@@ -8,12 +8,11 @@
 </head>
 <body>
 
-    
     <!-- Encabezado y Navegación -->
     <header>
         <div class="container nav-container">
             <div class="logo" style="display: flex; align-items: center; gap: 20px;">
-            <img src="logo.png" alt="Logo INEB Centro Cajolá" style="height: 90px; width: auto; object-fit: contain;">
+                <img src="logo.png" alt="Logo INEB Centro Cajolá" style="height: 90px; width: auto; object-fit: contain;">
                 <h1>INEB <span>CENTRO CAJOLÁ</span></h1>
             </div>
             <nav>
@@ -28,7 +27,6 @@
         </div>
     </header>
 
-    
     <!-- Sección de Bienvenida (Hero) -->
     <section id="inicio" class="hero">
         <div class="hero-content container">
@@ -38,7 +36,6 @@
         </div>
     </section>
 
-    
     <!-- Sección Nosotros -->
     <section id="nosotros" class="section container">
         <h2>Sobre Nuestro Instituto</h2>
@@ -54,7 +51,6 @@
         </div>
     </section>
 
-    
     <!-- Sección Oferta Académica -->
     <section id="oferta" class="section bg-light">
         <div class="container">
@@ -76,7 +72,6 @@
         </div>
     </section>
 
-    
     <!-- NUEVA SECCIÓN: Galería de Fotos y Videos -->
     <section id="galeria" class="section container">
         <h2>Galería de Fotos y Videos</h2>
@@ -85,24 +80,23 @@
         <h3 class="subsection-title">Momentos INEB</h3>
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="banda1.jpg" alt="Instalaciones del Instituto">
+                <img src="banda1.jpg" alt="Instalaciones del Instituto" class="gallery-img" onclick="openLightbox(this.src)">
                 <p class="caption">Presentación Banda Escolar</p>
             </div>
             <div class="gallery-item">
-                <img src="honor.jpg" alt="Estudiantes en el laboratorio">
+                <img src="honor.jpg" alt="Estudiantes en el laboratorio" class="gallery-img" onclick="openLightbox(this.src)">
                 <p class="caption">Alumnos Distinguidos</p>
             </div>
             <div class="gallery-item">
-                <img src="banda2.jpg" alt="Clases en aula">
+                <img src="banda2.jpg" alt="Clases en aula" class="gallery-img" onclick="openLightbox(this.src)">
                 <p class="caption">Banda Escolar</p>
             </div>
             <div class="gallery-item">
-                <img src="maestros.jpg" alt="Biblioteca">
+                <img src="maestros.jpg" alt="Biblioteca" class="gallery-img" onclick="openLightbox(this.src)">
                 <p class="caption">Catedraticos</p>
             </div>
         </div>
 
-        
         <!-- Catálogo de Videos -->
         <h3 class="subsection-title video-title">Videos Institucionales</h3>
         <div class="video-grid">
@@ -118,7 +112,6 @@
         </div>
     </section>
 
-    
     <!-- Sección Contacto -->
     <section id="contacto" class="section bg-light">
         <div class="container">
@@ -145,23 +138,49 @@
                     <input type="tel" name="Telefono_Encargado" placeholder="Teléfono del padre o Tutor">
                     <textarea name="Lugar_donde_viven" placeholder="Lugara donde viven..." rows="4" required></textarea>
                     <div style="background-color: #f8f9fa; border-left: 4px solid #d90429; padding: 12px 15px; margin: 15px 0; text-align: left; border-radius: 4px;">
-        <p style="color: #0a192f; font-size: 0.88rem; font-weight: bold; margin: 0; line-height: 1.4;">
-            📌 NOTA: LOS EXPEDIENTES SE RECIBEN DE FORMA FÍSICA EN LAS INSTALACIONES DEL CENTRO EDUCATIVO INEB CENTRO CAJOLÁ.
-        </p>
-    </div>
+                        <p style="color: #0a192f; font-size: 0.88rem; font-weight: bold; margin: 0; line-height: 1.4;">
+                            📌 NOTA: LOS EXPEDIENTES SE RECIBEN DE FORMA FÍSICA EN LAS INSTALACIONES DEL CENTRO EDUCATIVO INEB CENTRO CAJOLÁ.
+                        </p>
+                    </div>
                     <button type="submit" class="btn">Inscribirse</button>
                 </form>
             </div>
         </div>
     </section>
 
-    
     <!-- Pie de página -->
     <footer>
         <div class="container">
             <p>&copy; 2026 INEB CENTRO CAJOLÁ. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <!-- VISOR DE FOTOS A PANTALLA COMPLETA (LIGHTBOX) -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Foto ampliada">
+    </div>
+
+    <!-- SCRIPT PARA ABRIR Y CERRAR LA IMAGEN -->
+    <script>
+        function openLightbox(imageSrc) {
+            var lightbox = document.getElementById("lightbox");
+            var lightboxImg = document.getElementById("lightbox-img");
+            lightbox.style.display = "flex";
+            lightboxImg.src = imageSrc;
+        }
+
+        function closeLightbox() {
+            document.getElementById("lightbox").style.display = "none";
+        }
+
+        // Permite cerrar al presionar la tecla ESC en computadora
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeLightbox();
+            }
+        });
+    </script>
 
 </body>
 </html>
