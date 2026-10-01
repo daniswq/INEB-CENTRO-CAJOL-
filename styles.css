@@ -282,61 +282,81 @@ footer {
 }
 
 /* ==========================================
-   7. ADAPTACIÓN PARA DISPOSITIVOS MÓVILES Y TABLETAS
+   7. ADAPTACIÓN OPTIMIZADA PARA MÓVILES (TELÉFONOS)
    ========================================== */
 @media (max-width: 768px) {
+    /* Mayor margen superior para dar espacio al encabezado al navegar */
     section {
-        scroll-margin-top: 150px; /* Mayor espacio en móviles por la altura del encabezado */
+        scroll-margin-top: 170px;
+    }
+
+    header {
+        padding: 0.5rem 0; /* Encabezado más compacto verticalmente */
     }
 
     .nav-container {
         flex-direction: column;
-        gap: 12px;
+        gap: 6px;
         text-align: center;
     }
 
+    .logo h1 {
+        font-size: 1.25rem;
+    }
+
+    .logo img {
+        height: 48px; /* Tamaño del logo ligeramente ajustado en móvil */
+    }
+
+    /* Menú más estético, ordenado y compacto */
     .nav-links {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 10px 15px;
+        gap: 6px 12px; /* Reducción de separación entre enlaces */
     }
 
     .nav-links li {
         margin-left: 0;
     }
 
+    .nav-links a {
+        font-size: 0.85rem;
+        padding: 2px 4px;
+        letter-spacing: 0.2px; /* Unifica la estética del texto */
+    }
+
     .hero {
-        padding: 60px 15px;
+        padding: 55px 15px;
     }
 
     .hero h2 {
-        font-size: 1.9rem;
+        font-size: 1.8rem;
     }
 
     .hero p {
-        font-size: 1rem;
+        font-size: 0.98rem;
     }
 
     .section {
-        padding: 45px 0;
+        padding: 40px 0;
     }
 
     .section h2 {
-        font-size: 1.7rem;
+        font-size: 1.6rem;
     }
 
     .grid-2, 
     .cards-grid, 
     .video-grid {
-        grid-template-columns: 1fr; /* Una sola columna en teléfonos */
+        grid-template-columns: 1fr;
     }
 
     .gallery-grid {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 12px;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 10px;
     }
 
     .gallery-item img {
-        height: 140px;
+        height: 130px;
     }
 }
