@@ -161,20 +161,23 @@
         <img class="lightbox-content" id="lightbox-img" alt="Foto ampliada">
     </div>
 
-    <!-- SCRIPT PARA ABRIR Y CERRAR LA IMAGEN -->
+    <!-- SCRIPT PARA ABRIR Y CERRAR LA IMAGEN SOLO EN MÓVILES -->
     <script>
         function openLightbox(imageSrc) {
-            var lightbox = document.getElementById("lightbox");
-            var lightboxImg = document.getElementById("lightbox-img");
-            lightbox.style.display = "flex";
-            lightboxImg.src = imageSrc;
+            // Solo se ejecuta en pantallas de teléfonos o dispositivos pequeños (<= 768px)
+            if (window.innerWidth <= 768) {
+                var lightbox = document.getElementById("lightbox");
+                var lightboxImg = document.getElementById("lightbox-img");
+                lightbox.style.display = "flex";
+                lightboxImg.src = imageSrc;
+            }
         }
 
         function closeLightbox() {
             document.getElementById("lightbox").style.display = "none";
         }
 
-        // Permite cerrar al presionar la tecla ESC en computadora
+        // Permite cerrar al presionar la tecla ESC
         document.addEventListener('keydown', function(event) {
             if (event.key === "Escape") {
                 closeLightbox();
