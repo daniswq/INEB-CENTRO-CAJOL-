@@ -305,16 +305,14 @@ footer {
 }
 
 /* ==========================================
-   7. BOTÓN FLOTANTE DE WHATSAPP
+   7. BOTONES FLOTANTES DE CONTACTO (WHATSAPP Y MESSENGER)
    ========================================== */
-.whatsapp-float {
+.whatsapp-float,
+.btn-messenger {
   position: fixed;
+  right: 25px;
   width: 60px;
   height: 60px;
-  bottom: 25px;
-  right: 25px;
-  background-color: #25d366;
-  color: #ffffff;
   border-radius: 50%;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -326,15 +324,40 @@ footer {
   transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.whatsapp-float svg {
-  width: 32px;
-  height: 32px;
+/* Posición del botón de WhatsApp (Abajo) */
+.whatsapp-float {
+  bottom: 25px;
+  background-color: #25d366;
+  color: #ffffff;
 }
 
 .whatsapp-float:hover {
   background-color: #128c7e;
   transform: scale(1.1);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.whatsapp-float svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Posición del botón de Messenger (Justo arriba de WhatsApp) */
+.btn-messenger {
+  bottom: 95px; /* 25px + 60px alto + 10px separación */
+  background-color: #0084ff;
+  color: #ffffff;
+}
+
+.btn-messenger:hover {
+  background-color: #006bce;
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.btn-messenger svg {
+  width: 30px;
+  height: 30px;
 }
 
 /* ==========================================
@@ -479,16 +502,25 @@ footer {
     height: 130px;
   }
 
-  /* Ajuste responsivo del botón flotante en móviles */
-  .whatsapp-float {
+  /* Ajustes responsivos para los botones flotantes en móviles */
+  .whatsapp-float,
+  .btn-messenger {
     width: 52px;
     height: 52px;
-    bottom: 20px;
     right: 20px;
   }
 
-  .whatsapp-float svg {
-    width: 28px;
-    height: 28px;
+  .whatsapp-float {
+    bottom: 20px;
+  }
+
+  .btn-messenger {
+    bottom: 82px; /* 20px + 52px alto + 10px separación */
+  }
+
+  .whatsapp-float svg,
+  .btn-messenger svg {
+    width: 26px;
+    height: 26px;
   }
 }
