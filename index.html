@@ -55,7 +55,7 @@
     <section id="oferta" class="section bg-light">
         <div class="container">
             
-            <!-- Subsección: Niveles Académicos -->
+            <!-- Subsección: Niveles Académicos (3 Tarjetas) -->
             <h2>Niveles Académicos</h2>
             <div class="cards-grid">
                 <div class="card">
@@ -72,9 +72,9 @@
                 </div>
             </div>
 
-            <!-- Subsección: Apoyo Académico -->
+            <!-- Subsección: Apoyo Académico (4 Tarjetas alineadas al mismo margen) -->
             <h2 style="margin-top: 50px;">Apoyo Académico</h2>
-            <div class="cards-grid">
+            <div class="cards-grid-4">
                 <div class="card">
                     <h3>Becas Mides</h3>
                     <p>Apoyo e incentivos dirigidos a la permanencia y desarrollo educativo de nuestros estudiantes.</p>
@@ -86,6 +86,10 @@
                 <div class="card">
                     <h3>Becas Inglés</h3>
                     <p>Oportunidades de capacitación en el idioma inglés para fortalecer las competencias globales de los jóvenes.</p>
+                </div>
+                <div class="card">
+                    <h3>Utiles Escolares</h3>
+                    <p>Dotación de materiales y recursos de estudio para apoyar el proceso de aprendizaje continuo.</p>
                 </div>
             </div>
 
@@ -199,7 +203,6 @@
     <!-- SCRIPT PARA ABRIR Y CERRAR LA IMAGEN SOLO EN MÓVILES -->
     <script>
         function openLightbox(imageSrc) {
-            // Solo se ejecuta en pantallas de teléfonos o dispositivos pequeños (<= 768px)
             if (window.innerWidth <= 768) {
                 var lightbox = document.getElementById("lightbox");
                 var lightboxImg = document.getElementById("lightbox-img");
@@ -209,10 +212,10 @@
         }
 
         function closeLightbox() {
+            document.getElementById("lightbox");
             document.getElementById("lightbox").style.display = "none";
         }
 
-        // Permite cerrar al presionar la tecla ESC
         document.addEventListener('keydown', function(event) {
             if (event.key === "Escape") {
                 closeLightbox();
