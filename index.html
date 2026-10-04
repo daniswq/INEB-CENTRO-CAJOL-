@@ -291,8 +291,7 @@
 
     <!-- SCRIPT PARA ENVIAR FORMULARIO A GOOGLE SHEETS -->
     <script>
-        // PEGA TU URL DE GOOGLE APPS SCRIPT AQUÍ:
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbykiU93L98xrYjk0Q9aTlf_Xc68UKfVFQ3XxsuXP7lfFLjWrMCVawCzoHkmrizGr71a/exec'; 
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxeApxcH4cr5iToAb8Lp5sT6lDpJn71N9EXByyq4WZgo14tIrTyqx9xjccI-aFxiHei/exec'; 
         
         const form = document.getElementById('formInscripcion');
         const btnEnviar = document.getElementById('btnEnviar');
@@ -309,39 +308,29 @@
             mensajeEstado.style.color = '#333';
             mensajeEstado.innerHTML = 'Enviando información...';
 
-            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => {
-                    mensajeEstado.style.backgroundColor = '#d4edda';
-                    mensajeEstado.style.color = '#155724';
-                    mensajeEstado.innerHTML = '¡Inscripción enviada exitosamente!';
-                    btnEnviar.disabled = false;
-                    btnEnviar.innerText = 'Inscribirse';
-                    form.reset();
-                })
-                .catch(error => {
-                    mensajeEstado.style.backgroundColor = '#f8d7da';
-                    mensajeEstado.style.color = '#721c24';
-                    mensajeEstado.innerHTML = 'Ocurrió un error al enviar. Por favor intenta de nuevo.';
-                    btnEnviar.disabled = false;
-                    btnEnviar.innerText = 'Inscribirse';
-                    console.error('Error!', error.message);
-                });
+            fetch(scriptURL, { 
+                method: 'POST', 
+                body: new FormData(form)
+            })
+            .then(response => {
+                mensajeEstado.style.backgroundColor = '#d4edda';
+                mensajeEstado.style.color = '#155724';
+                mensajeEstado.innerHTML = '¡Inscripción enviada exitosamente!';
+                btnEnviar.disabled = false;
+                btnEnviar.innerText = 'Inscribirse';
+                form.reset();
+            })
+            .catch(error => {
+                mensajeEstado.style.backgroundColor = '#f8d7da';
+                mensajeEstado.style.color = '#721c24';
+                mensajeEstado.innerHTML = 'Ocurrió un error al enviar. Por favor intenta de nuevo.';
+                btnEnviar.disabled = false;
+                btnEnviar.innerText = 'Inscribirse';
+                console.error('Error!', error.message);
+            });
         });
     </script>
-
-    <!-- BOTONES FLOTANTES DE CONTACTO -->
-
-    <!-- 1. Botón de Messenger -->
-    <a href="https://m.me/103082308286300?text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20las%20inscripciones%20en%20el%20INEB%20Centro%20Cajol%C3%A1." 
-       class="btn-messenger" 
-       target="_blank" 
-       rel="noopener noreferrer" 
-       aria-label="Chat en Messenger">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2C6.477 2 2 6.145 2 11.258c0 2.91 1.455 5.518 3.734 7.214V22l3.376-1.854c.925.257 1.906.398 2.89.398 5.523 0 10-4.145 10-9.258C22 6.145 17.523 2 12 2zm1.03 12.348l-2.58-2.753-5.033 2.753 5.535-5.88 2.628 2.753 4.985-2.753-5.535 5.88z"/>
-      </svg>
-    </a>
-
+    
     <!-- 2. Botón de WhatsApp -->
     <a href="https://wa.me/50249855548?text=Hola,%20quisiera%20más%20información%20sobre%20las%20inscripciones%20en%20el%20INEB%20Centro%20Cajolá." 
        class="whatsapp-float" 
