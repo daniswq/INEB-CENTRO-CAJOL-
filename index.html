@@ -19,8 +19,9 @@
                 <ul class="nav-links">
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#nosotros">Nosotros</a></li>
-                    <li><a href="#oferta">Niveles y Apoyo Académico</a></li>
+                    <li><a href="#oferta">Niveles y Apoyo</a></li>
                     <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#donaciones">Donaciones</a></li>
                     <li><a href="#contacto">Inscripciones</a></li>
                 </ul>
             </nav>
@@ -72,7 +73,7 @@
                 </div>
             </div>
 
-            <!-- Subsección: Apoyo Académico (4 Tarjetas alineadas al mismo margen) -->
+            <!-- Subsección: Apoyo Académico -->
             <h2 style="margin-top: 50px;">Apoyo Académico</h2>
             <div class="cards-grid-4">
                 <div class="card">
@@ -88,7 +89,7 @@
                     <p>Oportunidades de capacitación en el idioma inglés para fortalecer las competencias globales de los jóvenes.</p>
                 </div>
                 <div class="card">
-                    <h3>Utiles Escolares</h3>
+                    <h3>Útiles Escolares</h3>
                     <p>Dotación de materiales y recursos de estudio para apoyar el proceso de aprendizaje continuo.</p>
                 </div>
             </div>
@@ -151,39 +152,85 @@
         </div>
     </section>
 
-    <!-- Sección Contacto e Inscripciones -->
-    <section id="contacto" class="section bg-light">
+    <!-- Sección de Donaciones y Apoyo Institucional -->
+    <section id="donaciones" class="section bg-light">
         <div class="container">
-            <h2>Contacto e Inscripciones</h2>
+            <h2>Apoya a Nuestra Comunidad Educativa</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px auto; color: #555;">
+                Tu contribución impulsa el futuro de nuestros jóvenes. Aceptamos apoyo en especie y donaciones para el equipamiento y mantenimiento del INEB Centro Cajolá.
+            </p>
+            
             <div class="grid-2">
-                <div class="contact-info">
-                    <h3>Información de Contacto</h3>
-                    <p><strong>Dirección:</strong> Calle Principal Centro Cajolá </p>
-                    <p><strong>Teléfono:</strong> +502 4350-4585 / +502 4985-5548</p>
-                    <p><strong>Correo:</strong> Inebcajola6@gmail.com</p>
-                    <p><strong>Horario de atención:</strong> Lunes a Viernes de 13:00 a 18:00 hs.</p>
+                <!-- Tarjeta 1: Donaciones en Especie -->
+                <div class="card" style="text-align: left; padding: 25px;">
+                    <h3 style="color: #0a192f; margin-bottom: 15px;">📦 Donaciones en Especie</h3>
+                    <p>Puedes colaborar directamente entregando materiales en nuestras instalaciones:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px; line-height: 1.8; color: #444;">
+                        <li>Equipos de computación y tecnología.</li>
+                        <li>Útiles escolares y papelería.</li>
+                        <li>Material deportivo y instrumentos musicales.</li>
+                        <li>Pintura y herramientas de mantenimiento.</li>
+                    </ul>
                 </div>
-                <form action="https://formspree.io/f/xeaoddoy" method="POST" class="contact-form">
-                    <label style="display:block; text-align:left; font-size:0.9rem; font-weight:600; margin-bottom:5px; color:#0a192f;">DATOS DEL ESTUDIANTE:</label>
-                    <input type="text" name="Nombre_del_estudiante" placeholder="Nombre completo del estudiante" required>
-                    <input type="text" name="codigo_del_estudiante" placeholder="Código del estudiante" required>
-                    <input type="text" name="Edad_del_estudiante" placeholder="Edad del estudiante" required>
-                    <label style="display:block; text-align:left; font-size:0.9rem; font-weight:600; margin-bottom:5px; color:#0a192f;">Fecha de nacimiento del estudiante:</label>
-                    <input type="date" name="Fecha_de_nacimiento" required>
-                    <input type="text" name="Grado_a_cursar" placeholder="Grado a cursar" required>
-                    <label style="display:block; text-align:left; font-size:0.9rem; font-weight:600; margin-bottom:5px; color:#0a192f;">DATOS DEL ENCARGADO:</label>
-                    <input type="text" name="Nombre_encargado" placeholder="Nombre completo del padre o tutor" required>
-                    <input type="text" name="dpi_del_encargado" placeholder="DPI del encargado" required>
-                    <input type="tel" name="Telefono_Encargado" placeholder="Teléfono del padre o Tutor">
-                    <textarea name="Lugar_donde_vive" placeholder="Lugar donde vive..." rows="4" required></textarea>
-                    <div style="background-color: #f8f9fa; border-left: 4px solid #d90429; padding: 12px 15px; margin: 15px 0; text-align: left; border-radius: 4px;">
-                        <p style="color: #0a192f; font-size: 0.88rem; font-weight: bold; margin: 0; line-height: 1.4;">
-                            📌 NOTA: LOS EXPEDIENTES SE RECIBEN DE FORMA FÍSICA EN LAS INSTALACIONES DEL CENTRO EDUCATIVO INEB CENTRO CAJOLÁ.
-                        </p>
+
+                <!-- Tarjeta 2: Apoyo Monetario / Depósito Bancario -->
+                <div class="card" style="text-align: left; padding: 25px;">
+                    <h3 style="color: #0a192f; margin-bottom: 15px;">🏦 Apoyo Económico Directo</h3>
+                    <p>Si deseas realizar un depósito o transferencia institucional para proyectos del instituto:</p>
+                    <div style="background-color: #f8f9fa; border-left: 4px solid #0a192f; padding: 12px; margin-top: 15px; border-radius: 4px;">
+                        <p style="margin: 0; font-weight: bold; color: #0a192f;">📌 Titular de la Cuenta:</p>
+                        <p style="margin: 0 0 8px 0; color: #333;">INEB Centro Cajolá / Comité Escolar</p>
+                        <p style="margin: 0; font-weight: bold; color: #0a192f;">🏦 Banco:</p>
+                        <p style="margin: 0 0 8px 0; color: #333;">Banrural / Banco de Desarrollo</p>
+                        <p style="margin: 0; font-weight: bold; color: #0a192f;">🔢 Consulta de Número de Cuenta:</p>
+                        <p style="margin: 0; color: #333;">Contactar a la dirección para la cuenta oficial.</p>
                     </div>
-                    <button type="submit" class="btn">Inscribirse</button>
-                </form>
+                </div>
             </div>
+
+            <!-- Botón de contacto directo para donantes -->
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://wa.me/50249855548?text=Hola,%20quisiera%20coordinar%20una%20donaci%C3%B3n%20para%20el%20INEB%20Centro%20Cajol%C3%A1." 
+                   class="btn" 
+                   target="_blank" 
+                   style="background-color: #d90429; display: inline-block;">
+                   🤝 Coordinar Donación por WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto e Inscripciones -->
+    <section id="contacto" class="section container">
+        <h2>Contacto e Inscripciones</h2>
+        <div class="grid-2">
+            <div class="contact-info">
+                <h3>Información de Contacto</h3>
+                <p><strong>Dirección:</strong> Calle Principal Centro Cajolá </p>
+                <p><strong>Teléfono:</strong> +502 4350-4585 / +502 4985-5548</p>
+                <p><strong>Correo:</strong> Inebcajola6@gmail.com</p>
+                <p><strong>Horario de atención:</strong> Lunes a Viernes de 13:00 a 18:00 hs.</p>
+            </div>
+            <form action="https://formspree.io/f/xeaoddoy" method="POST" class="contact-form">
+                <label style="display:block; text-align:left; font-size:0.9rem; font-weight:600; margin-bottom:5px; color:#0a192f;">DATOS DEL ESTUDIANTE:</label>
+                <input type="text" name="Nombre_del_estudiante" placeholder="Nombre completo del estudiante" required>
+                <input type="text" name="codigo_del_estudiante" placeholder="Código del estudiante" required>
+                <input type="text" name="Edad_del_estudiante" placeholder="Edad del estudiante" required>
+                <label style="display:block; text-align:left; font-size:0.9rem; font-weight:600; margin-bottom:5px; color:#0a192f;">Fecha de nacimiento del estudiante:</label>
+                <input type="date" name="Fecha_de_nacimiento" required>
+                <input type="text" name="Grado_a_cursar" placeholder="Grado a cursar" required>
+                <label style="display:block; text-align:left; font-size:0.9rem; font-weight:600; margin-bottom:5px; color:#0a192f;">DATOS DEL ENCARGADO:</label>
+                <input type="text" name="Nombre_encargado" placeholder="Nombre completo del padre o tutor" required>
+                <input type="text" name="dpi_del_encargado" placeholder="DPI del encargado" required>
+                <input type="tel" name="Telefono_Encargado" placeholder="Teléfono del padre o Tutor">
+                <textarea name="Lugar_donde_vive" placeholder="Lugar donde vive..." rows="4" required></textarea>
+                <div style="background-color: #f8f9fa; border-left: 4px solid #d90429; padding: 12px 15px; margin: 15px 0; text-align: left; border-radius: 4px;">
+                    <p style="color: #0a192f; font-size: 0.88rem; font-weight: bold; margin: 0; line-height: 1.4;">
+                        📌 NOTA: LOS EXPEDIENTES SE RECIBEN DE FORMA FÍSICA EN LAS INSTALACIONES DEL CENTRO EDUCATIVO INEB CENTRO CAJOLÁ.
+                    </p>
+                </div>
+                <button type="submit" class="btn">Inscribirse</button>
+            </form>
         </div>
     </section>
 
@@ -225,12 +272,10 @@
         });
     </script>
 
-    <!-- ==========================================
-         BOTONES FLOTANTES DE CONTACTO
-         ========================================== -->
+    <!-- BOTONES FLOTANTES DE CONTACTO -->
 
-    <!-- 1. Botón de Messenger (Arriba) -->
-    <a href="https://m.me/103082308286300?text=Hola,%20quisiera%20más%20información%20sobre%20las%20inscripciones%20en%20el%20INEB%20Centro%20Cajolá." 
+    <!-- 1. Botón de Messenger -->
+    <a href="https://m.me/103082308286300?text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20las%20inscripciones%20en%20el%20INEB%20Centro%20Cajol%C3%A1." 
        class="btn-messenger" 
        target="_blank" 
        rel="noopener noreferrer" 
@@ -240,8 +285,8 @@
       </svg>
     </a>
 
-    <!-- 2. Botón de WhatsApp (Abajo) -->
-    <a href="https://wa.me/50249855548?text=Hola,%20quisiera%20más%20información%20sobre%20las%20inscripciones%20en%20el%20INEB%20Centro%20Cajolá." 
+    <!-- 2. Botón de WhatsApp -->
+    <a href="https://wa.me/50249855548?text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20las%20inscripciones%20en%20el%20INEB%20Centro%20Cajol%C3%A1." 
        class="whatsapp-float" 
        target="_blank" 
        rel="noopener noreferrer" 
