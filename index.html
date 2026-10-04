@@ -221,25 +221,32 @@
                 <p><strong>Correo:</strong> Inebcajola6@gmail.com</p>
                 <p><strong>Horario de atención:</strong> Lunes a Viernes de 13:00 a 18:00 hs.</p>
             </div>
-            <form action="https://formspree.io/f/xeaoddoy" method="POST" class="contact-form">
+            
+            <!-- FORMULARIO DE INSCRIPCIÓN CONECTADO A GOOGLE SHEETS -->
+            <form id="formInscripcion" class="contact-form">
                 <label style="display:block; text-align:left; font-size:0.9rem; font-weight:600; margin-bottom:5px; color:#0a192f;">DATOS DEL ESTUDIANTE:</label>
                 <input type="text" name="Nombre_del_estudiante" placeholder="Nombre completo del estudiante" required>
                 <input type="text" name="codigo_del_estudiante" placeholder="Código del estudiante" required>
                 <input type="text" name="Edad_del_estudiante" placeholder="Edad del estudiante" required>
+                
                 <label style="display:block; text-align:left; font-size:0.9rem; font-weight:600; margin-bottom:5px; color:#0a192f;">Fecha de nacimiento del estudiante:</label>
                 <input type="date" name="Fecha_de_nacimiento" required>
                 <input type="text" name="Grado_a_cursar" placeholder="Grado a cursar" required>
+                
                 <label style="display:block; text-align:left; font-size:0.9rem; font-weight:600; margin-bottom:5px; color:#0a192f;">DATOS DEL ENCARGADO:</label>
                 <input type="text" name="Nombre_encargado" placeholder="Nombre completo del padre o tutor" required>
                 <input type="text" name="dpi_del_encargado" placeholder="DPI del encargado" required>
-                <input type="tel" name="Telefono_Encargado" placeholder="Teléfono del padre o Tutor">
+                <input type="tel" name="Telefono_Encargado" placeholder="Teléfono del padre o Tutor" required>
                 <textarea name="Lugar_donde_vive" placeholder="Lugar donde vive..." rows="4" required></textarea>
+                
                 <div style="background-color: #f8f9fa; border-left: 4px solid #d90429; padding: 12px 15px; margin: 15px 0; text-align: left; border-radius: 4px;">
                     <p style="color: #0a192f; font-size: 0.88rem; font-weight: bold; margin: 0; line-height: 1.4;">
                         📌 NOTA: LOS EXPEDIENTES SE RECIBEN DE FORMA FÍSICA EN LAS INSTALACIONES DEL CENTRO EDUCATIVO INEB CENTRO CAJOLÁ.
                     </p>
                 </div>
-                <button type="submit" class="btn">Inscribirse</button>
+                
+                <button type="submit" id="btnEnviar" class="btn">Inscribirse</button>
+                <p id="mensajeEstado" style="display: none; margin-top: 15px; padding: 10px; border-radius: 4px; text-align: center; font-weight: bold;"></p>
             </form>
         </div>
     </section>
@@ -260,7 +267,7 @@
         <img class="lightbox-content" id="lightbox-img" alt="Foto ampliada">
     </div>
 
-    <!-- SCRIPT PARA ABRIR Y CERRAR LA IMAGEN SOLO EN MÓVILES -->
+    <!-- SCRIPT PARA EL LIGHTBOX EN MÓVILES -->
     <script>
         function openLightbox(imageSrc) {
             if (window.innerWidth <= 768) {
@@ -279,6 +286,46 @@
             if (event.key === "Escape") {
                 closeLightbox();
             }
+        });
+    </script>
+
+    <!-- SCRIPT PARA ENVIAR FORMULARIO A GOOGLE SHEETS -->
+    <script>
+        // PEGA TU URL DE GOOGLE APPS SCRIPT AQUÍ:
+        const scriptURL = 'PEGA_AQUI_TU_URL_DE_LA_APP_WEB'; 
+        
+        const form = document.getElementById('formInscripcion');
+        const btnEnviar = document.getElementById('btnEnviar');
+        const mensajeEstado = document.getElementById('mensajeEstado');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            
+            btnEnviar.disabled = true;
+            btnEnviar.innerText = 'Enviando...';
+            
+            mensajeEstado.style.display = 'block';
+            mensajeEstado.style.backgroundColor = '#e9ecef';
+            mensajeEstado.style.color = '#333';
+            mensajeEstado.innerHTML = 'Enviando información...';
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    mensajeEstado.style.backgroundColor = '#d4edda';
+                    mensajeEstado.style.color = '#155724';
+                    mensajeEstado.innerHTML = '¡Inscripción enviada exitosamente!';
+                    btnEnviar.disabled = false;
+                    btnEnviar.innerText = 'Inscribirse';
+                    form.reset();
+                })
+                .catch(error => {
+                    mensajeEstado.style.backgroundColor = '#f8d7da';
+                    mensajeEstado.style.color = '#721c24';
+                    mensajeEstado.innerHTML = 'Ocurrió un error al enviar. Por favor intenta de nuevo.';
+                    btnEnviar.disabled = false;
+                    btnEnviar.innerText = 'Inscribirse';
+                    console.error('Error!', error.message);
+                });
         });
     </script>
 
