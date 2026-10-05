@@ -523,4 +523,17 @@ footer {
     width: 26px;
     height: 26px;
   }
+
+   /* Ajuste exclusivo para pantallas de teléfonos */
+@media (max-width: 768px) {
+  footer, .footer {
+    text-align: left !important;  /* Alinea el texto a la izquierda */
+    padding-left: 20px !important; /* Margen izquierdo para separar del borde */
+    padding-right: 80px !important;/* Espacio libre a la derecha para no chocar con los botones */
+  }
+
+  footer p, .footer p {
+    text-align: left !important;
+  }
+}
 }
