@@ -601,13 +601,14 @@ header {
 footer {
   background-color: var(--primary-blue);
   border-top: 4px solid var(--accent-red);
-  color: var(--text-white);
+  color: #ffffff;
   text-align: center;
   padding: 25px 0;
   font-size: 0.95rem;
 }
 
 footer p {
+  color: #ffffff;
   font-weight: 400;
 }
 
