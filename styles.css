@@ -576,7 +576,7 @@ header {
 }
 
 .contact-info strong {
-  color: var(--primary-blue);
+  color: var(--text-white);
   font-weight: 600;
 }
 
