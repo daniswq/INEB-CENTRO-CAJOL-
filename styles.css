@@ -466,7 +466,72 @@ footer {
     padding: 2px 4px;
     letter-spacing: 0.2px;
   }
+/* Sección Hero / Bienvenida con Fondo Fotográfico */
+.hero {
+    /* Reemplaza 'foto-fondo.jpg' por el nombre real de tu imagen en el repositorio */
+    background: linear-gradient(rgba(10, 25, 47, 0.75), rgba(10, 25, 47, 0.75)), url('fotofondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    text-align: center;
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
+.hero h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin-bottom: 30px;
+    color: #e2e8f0;
+}
+
+/* Estilo para botones llamativos dentro del Hero */
+.hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.btn-hero-main {
+    background-color: #ff6b6b; /* Color coral similar al ejemplo */
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: background 0.3s ease;
+}
+
+.btn-hero-main:hover {
+    background-color: #fa5252;
+}
+
+.btn-hero-secundario {
+    background-color: #4dabf7; /* Color celeste */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
   .hero {
     padding: 55px 15px;
   }
