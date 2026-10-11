@@ -469,7 +469,7 @@ footer {
 /* Sección Hero / Bienvenida con Fondo Fotográfico */
 .hero {
     /* Reemplaza 'foto-fondo.jpg' por el nombre real de tu imagen en el repositorio */
-    background: linear-gradient(rgba(10, 25, 47, 0.75), rgba(10, 25, 47, 0.75)), url('fotofondo.jpg');
+    background: linear-gradient(rgba(10, 25, 47, 0.75), rgba(10, 25, 47, 0.75)), url('fotoportada.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
