@@ -97,26 +97,30 @@ header {
 }
 
 /* ==========================================
-   3. BANNER PRINCIPAL (HERO) Y BOTONES
+   3. BANNER PRINCIPAL (HERO) CON FOTO DE FONDO
    ========================================== */
 .hero {
-  background: linear-gradient(135deg, rgba(10, 25, 47, 0.9), rgba(217, 4, 41, 0.75)), 
-              url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80') center/cover;
+  background: linear-gradient(rgba(10, 25, 47, 0.75), rgba(10, 25, 47, 0.75)), url('fotoportada.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: var(--text-white);
   text-align: center;
-  padding: 110px 20px;
+  padding: 120px 20px;
 }
 
 .hero h2 {
   font-size: 2.8rem;
   margin-bottom: 15px;
+  font-weight: bold;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero p {
   font-size: 1.2rem;
   max-width: 700px;
-  margin: 0 auto 20px auto;
+  margin: 0 auto 30px auto;
+  color: #e2e8f0;
 }
 
 .btn {
@@ -324,7 +328,6 @@ footer {
   transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Posición del botón de WhatsApp (Abajo) */
 .whatsapp-float {
   bottom: 25px;
   background-color: #25d366;
@@ -342,9 +345,8 @@ footer {
   height: 32px;
 }
 
-/* Posición del botón de Messenger (Justo arriba de WhatsApp) */
 .btn-messenger {
-  bottom: 95px; /* 25px + 60px alto + 10px separación */
+  bottom: 95px;
   background-color: #0084ff;
   color: #ffffff;
 }
@@ -466,74 +468,9 @@ footer {
     padding: 2px 4px;
     letter-spacing: 0.2px;
   }
-/* Sección Hero / Bienvenida con Fondo Fotográfico */
-.hero {
-    /* Reemplaza 'foto-fondo.jpg' por el nombre real de tu imagen en el repositorio */
-    background: linear-gradient(rgba(10, 25, 47, 0.75), rgba(10, 25, 47, 0.75)), url('fotoportada.jpg');
-    background-size: cover !important;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: #ffffff;
-    text-align: center;
-    padding: 100px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 
-.hero h2 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 15px;
-    color: #ffffff;
-}
-
-.hero p {
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin-bottom: 30px;
-    color: #e2e8f0;
-}
-
-/* Estilo para botones llamativos dentro del Hero */
-.hero-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
-    max-width: 350px;
-    margin: 0 auto;
-}
-
-.btn-hero-main {
-    background-color: #ff6b6b; /* Color coral similar al ejemplo */
-    color: white;
-    padding: 15px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: background 0.3s ease;
-}
-
-.btn-hero-main:hover {
-    background-color: #fa5252;
-}
-
-.btn-hero-secundario {
-    background-color: #4dabf7; /* Color celeste */
-    color: white;
-    padding: 12px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
   .hero {
-    padding: 55px 15px;
+    padding: 75px 15px;
   }
 
   .hero h2 {
@@ -567,7 +504,6 @@ footer {
     height: 130px;
   }
 
-  /* Ajustes responsivos para los botones flotantes en móviles */
   .whatsapp-float,
   .btn-messenger {
     width: 52px;
@@ -580,7 +516,7 @@ footer {
   }
 
   .btn-messenger {
-    bottom: 82px; /* 20px + 52px alto + 10px separación */
+    bottom: 82px;
   }
 
   .whatsapp-float svg,
@@ -589,16 +525,13 @@ footer {
     height: 26px;
   }
 
-   /* Ajuste exclusivo para pantallas de teléfonos */
-@media (max-width: 768px) {
   footer, .footer {
-    text-align: left !important;  /* Alinea el texto a la izquierda */
-    padding-left: 20px !important; /* Margen izquierdo para separar del borde */
-    padding-right: 80px !important;/* Espacio libre a la derecha para no chocar con los botones */
+    text-align: left !important;
+    padding-left: 20px !important;
+    padding-right: 80px !important;
   }
 
   footer p, .footer p {
     text-align: left !important;
   }
-}
 }
