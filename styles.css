@@ -100,7 +100,7 @@ header {
    3. BANNER PRINCIPAL (HERO) CON FOTO DE FONDO
    ========================================== */
 .hero {
-  background: linear-gradient(rgba(10, 25, 47, 0.75), rgba(10, 25, 47, 0.75)), url('fotoportada.jpg');
+  background: linear-gradient(rgba(10, 25, 47, 0.75), rgba(10, 25, 47, 0.75)), url('portada2.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
