@@ -9,8 +9,8 @@
   --text-white: #ffffff;
   --border-color: #e0e0e0;
   
-  /* Configuración de la fuente Inter con respaldo */
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  /* Configuración de tipografía Inter (Premium) */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   
   --scroll-offset-desktop: 110px;
   --scroll-offset-mobile: 170px;
@@ -55,273 +55,12 @@ section {
 /* Tipografía de Títulos Premium */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family);
-  letter-spacing: -0.02em; /* Compacta suavemente los títulos para dar un aspecto moderno */
+  letter-spacing: -0.02em;
 }
 
 p {
   font-weight: 400;
   color: #334155;
-}
-
-/* ==========================================
-   2. ENCABEZADO Y NAVEGACIÓN
-   ========================================== */
-header {
-  background-color: var(--primary-blue);
-  border-bottom: 4px solid var(--accent-red);
-  color: var(--text-white);
-  padding: 1rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo h1 {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--text-white);
-  letter-spacing: -0.01em;
-}
-
-.logo h1 span {
-  color: var(--accent-red);
-  font-weight: 800;
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-}
-
-.nav-links li {
-  margin-left: 20px;
-}
-
-.nav-links a {
-  color: var(--text-white);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
-  letter-spacing: 0.01em;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: var(--accent-red);
-}
-
-/* ==========================================
-   3. BANNER PRINCIPAL (HERO) CON FOTO DE FONDO
-   ========================================== */
-.hero {
-  background: linear-gradient(rgba(10, 25, 47, 0.75), rgba(10, 25, 47, 0.75)), url('portada2.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: var(--text-white);
-  text-align: center;
-  padding: 120px 20px;
-}
-
-.hero h2 {
-  font-size: 2.8rem;
-  margin-bottom: 15px;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-}
-
-.hero p {
-  font-size: 1.2rem;
-  font-weight: 400;
-  max-width: 700px;
-  margin: 0 auto 30px auto;
-  color: #e2e8f0;
-}
-
-.btn {
-  display: inline-block;
-  background-color: var(--accent-red);
-  color: var(--text-white);
-  padding: 12px 30px;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 0.98rem;
-  letter-spacing: 0.02em;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.btn:hover {
-  background-color: var(--primary-blue);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* ==========================================
-   4. SECCIONES Y TARJETAS
-   ========================================== */
-.section {
-  padding: 65px 0;
-}
-
-.section h2 {
-  text-align: center;
-  margin-bottom: 35px;
-  color: var(--primary-blue);
-  font-size: 2.2rem;
-  font-weight: 700;
-  position: relative;
-}
-
-.section h2::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 4px;
-  background-color: var(--accent-red);
-  margin: 10px auto 0 auto;
-  border-radius: 2px;
-}
-
-.subsection-title {
-  color: var(--primary-blue);
-  font-weight: 700;
-  margin-bottom: 20px;
-  border-left: 5px solid var(--accent-red);
-  padding-left: 12px;
-}
-
-.video-title {
-  margin-top: 45px;
-}
-
-.bg-light {
-  background-color: var(--bg-light);
-}
-
-.grid-2 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-}
-
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-}
-
-.card {
-  background: var(--text-white);
-  padding: 30px;
-  border-radius: 8px;
-  border-top: 4px solid var(--accent-red);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card h3 {
-  color: var(--primary-blue);
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-
-/* ==========================================
-   5. GALERÍA Y MULTIMEDIA
-   ========================================== */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-}
-
-.gallery-item {
-  background: var(--text-white);
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gallery-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(10, 25, 47, 0.15);
-}
-
-.gallery-item¡Listo! He revisado tu archivo CSS, corregido un pequeño error tipográfico que había en el selector universal (`-` en lugar de `*`) y configurado **Inter** de extremo a extremo. 
-
-Además, optimicé los **grosores (*font-weight*)**, el **interlineado (*line-height*)** y el **espaciado de letras (*letter-spacing*)** en títulos, botones y párrafos para que la tipografía luzca imponente, moderna y con un acabado de muy alta gama (*premium*).
-
-### Copia este código CSS completo y reemplázalo en tu archivo `styles.css`:
-
-```css
-/* ==========================================
-   1. VARIABLES GLOBALES Y CONFIGURACIÓN BASE
-   ========================================== */
-:root {
-  --primary-blue: #0a192f;
-  --accent-red: #d90429;
-  --bg-light: #f8f9fa;
-  --text-dark: #2b2d42;
-  --text-white: #ffffff;
-  --border-color: #e0e0e0;
-  
-  /* Configuración de tipografía Inter (Premium) */
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  
-  --scroll-offset-desktop: 110px;
-  --scroll-offset-mobile: 170px;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: var(--font-family);
-}
-
-body {
-  color: var(--text-dark);
-  background-color: var(--text-white);
-  line-height: 1.6;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-section {
-  scroll-margin-top: var(--scroll-offset-desktop);
-}
-
-.container {
-  width: 90%;
-  max-width: 1100px;
-  margin: auto;
 }
 
 /* ==========================================
@@ -732,7 +471,54 @@ footer p {
 }
 
 /* ==========================================
-   9. ADAPTACIÓN OPTIMIZADA PARA MÓVILES
+   9. COMPONENTES ESPECIALES (TOOLTIP FLOTANTE)
+   ========================================== */
+.input-tooltip-container {
+  position: relative;
+  width: 100%;
+}
+
+.input-tooltip-container .tooltip-text {
+  visibility: hidden;
+  width: 100%;
+  background-color: var(--primary-blue);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  font-weight: 400;
+  line-height: 1.4;
+  position: absolute;
+  z-index: 10;
+  bottom: 105%;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-left: 4px solid var(--accent-red);
+}
+
+.input-tooltip-container .tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 20px;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--primary-blue) transparent transparent transparent;
+}
+
+.input-tooltip-container:hover .tooltip-text,
+.input-tooltip-container input:hover ~ .tooltip-text,
+.input-tooltip-container input:focus ~ .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ==========================================
+   10. ADAPTACIÓN OPTIMIZADA PARA MÓVILES
    ========================================== */
 @media (max-width: 768px) {
   section {
@@ -838,50 +624,4 @@ footer p {
   footer p, .footer p {
     text-align: left !important;
   }
-   
-/* Contenedor del campo con nota flotante */
-.input-tooltip-container {
-  position: relative;
-  width: 100%;
-}
-
-/* El texto de la nota flotante (oculto por defecto) */
-.input-tooltip-container .tooltip-text {
-  visibility: hidden;
-  width: 100%;
-  background-color: var(--primary-blue);
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 12px;
-  font-size: 0.85rem;
-  font-weight: 400;
-  line-height: 1.4;
-  position: absolute;
-  z-index: 10;
-  bottom: 105%; /* Se coloca justo arriba del campo */
-  left: 0;
-  opacity: 0;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  border-left: 4px solid var(--accent-red);
-}
-
-/* Flechita decorativa del cuadro flotante */
-.input-tooltip-container .tooltip-text::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 20px;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: var(--primary-blue) transparent transparent transparent;
-}
-
-/* Al pasar el ratón (hover) o al hacer clic/tocar (focus-within) se muestra el cuadro */
-.input-tooltip-container:hover .tooltip-text,
-.input-tooltip-container input:focus ~ .tooltip-text {
-  visibility: visible;
-  opacity: 1;
 }
