@@ -839,7 +839,6 @@ footer p {
     text-align: left !important;
   }
    
-/* Estilo personalizado para el aviso flotante del código */
 input[name="codigo_del_estudiante"] {
   position: relative;
 }
@@ -847,5 +846,5 @@ input[name="codigo_del_estudiante"] {
 input[name="codigo_del_estudiante"]:hover::after,
 input[name="codigo_del_estudiante"]:focus::after {
   content: "Si no sabes tu código personal tu maestro guía o maestro de grado te lo puede proporcionar";
-  /* Puedes ajustar o dejar el title nativo que es totalmente compatible en celulares y PC */
+  
 }
