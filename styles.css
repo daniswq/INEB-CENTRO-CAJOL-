@@ -839,12 +839,49 @@ footer p {
     text-align: left !important;
   }
    
-input[name="codigo_del_estudiante"] {
+/* Contenedor del campo con nota flotante */
+.input-tooltip-container {
   position: relative;
+  width: 100%;
 }
 
-input[name="codigo_del_estudiante"]:hover::after,
-input[name="codigo_del_estudiante"]:focus::after {
-  content: "Si no sabes tu código personal tu maestro guía o maestro de grado te lo puede proporcionar";
-  
+/* El texto de la nota flotante (oculto por defecto) */
+.input-tooltip-container .tooltip-text {
+  visibility: hidden;
+  width: 100%;
+  background-color: var(--primary-blue);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  font-weight: 400;
+  line-height: 1.4;
+  position: absolute;
+  z-index: 10;
+  bottom: 105%; /* Se coloca justo arriba del campo */
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-left: 4px solid var(--accent-red);
+}
+
+/* Flechita decorativa del cuadro flotante */
+.input-tooltip-container .tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 20px;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--primary-blue) transparent transparent transparent;
+}
+
+/* Al pasar el ratón (hover) o al hacer clic/tocar (focus-within) se muestra el cuadro */
+.input-tooltip-container:hover .tooltip-text,
+.input-tooltip-container input:focus ~ .tooltip-text {
+  visibility: visible;
+  opacity: 1;
 }
