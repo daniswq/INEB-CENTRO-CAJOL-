@@ -13,36 +13,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Librería html2pdf.js para descarga directa en 1 clic -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <style>
         @media (max-width: 768px) {
             footer, .footer {
                 text-align: left !important;
                 padding-left: 20px !important;
-                padding-right: 90px !important; /* Espacio libre a la derecha para los botones flotantes */
+                padding-right: 90px !important;
                 padding-bottom: 30px !important;
             }
             footer p, .footer p {
                 text-align: left !important;
-            }
-        }
-
-        /* Configuración para que al presionar Guardar/Imprimir PDF salga perfecto */
-        @media print {
-            body * {
-                visibility: hidden;
-            }
-            #plantillaPDF, #plantillaPDF * {
-                visibility: visible;
-            }
-            #plantillaPDF {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                display: block !important;
-                background: white !important;
-                padding: 10px;
             }
         }
     </style>
@@ -68,7 +52,6 @@
         </div>
     </header>
 
-   <!-- Sección de Bienvenida (Hero) con Foto de Fondo y botón único -->
     <section id="inicio" class="hero">
         <div class="hero-content container">
             <h2>INEB Formando líderes del futuro</h2>
@@ -93,7 +76,6 @@
 
     <section id="oferta" class="section bg-light">
         <div class="container">
-            
             <h2>Niveles Académicos</h2>
             <div class="cards-grid">
                 <div class="card">
@@ -102,11 +84,11 @@
                 </div>
                 <div class="card">
                     <h3>Segundo Básico</h3>
-                    <p>Formación académica orientada al desarrollo de conocimientos, habilidades y competencias, fortaleciendo el aprendizaje integral de los estudiantes.</p>
+                    <p>Formación académica orientada al desarrollo de conocimientos, habilidades y competencias.</p>
                 </div>
                 <div class="card">
                     <h3>Tercero Básico</h3>
-                    <p>Formación enfocada en la preparación pre-diversificada, fortaleciendo el pensamiento crítico y la toma de decisiones.</p>
+                    <p>Formación enfocada en la preparación pre-diversificada, fortaleciendo el pensamiento crítico.</p>
                 </div>
             </div>
 
@@ -129,7 +111,6 @@
                     <p>Dotación de materiales y recursos de estudio para apoyar el proceso de aprendizaje continuo.</p>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -185,7 +166,7 @@
         </div>
     </section>
 
-   <section id="donaciones" class="section bg-light">
+    <section id="donaciones" class="section bg-light">
         <div class="container">
             <h2>Apoya a Nuestra Comunidad Educativa</h2>
             <p style="text-align: center; max-width: 800px; margin: 0 auto 30px auto; color: #555;">
@@ -252,10 +233,10 @@
             <form id="formInscripcion" class="contact-form">
                 <label style="display:block; text-align:left; font-size:0.9rem; font-weight:600; margin-bottom:5px; color:#0a192f;">DATOS DEL ESTUDIANTE:</label>
                 <input type="text" name="Nombre_del_estudiante" placeholder="Nombre completo del estudiante" required>
-               <div class="input-tooltip-container">
-               <input type="text" name="codigo_del_estudiante" placeholder="Código personal" required>
-               <span class="tooltip-text">💡 Si no sabes tu código personal, tu maestro guía o maestro de grado te lo puede proporcionar.</span>
-            </div>
+                <div class="input-tooltip-container">
+                    <input type="text" name="codigo_del_estudiante" placeholder="Código personal" required>
+                    <span class="tooltip-text">💡 Si no sabes tu código personal, tu maestro guía te lo puede proporcionar.</span>
+                </div>
                 <input type="text" name="Edad_del_estudiante" placeholder="Edad del estudiante" required>
                 
                 <label style="display:block; text-align:left; font-size:0.9rem; font-weight:600; margin-bottom:5px; color:#0a192f;">Fecha de nacimiento del estudiante:</label>
@@ -278,21 +259,21 @@
                 <p id="mensajeEstado" style="display: none; margin-top: 15px; padding: 10px; border-radius: 4px; text-align: center; font-weight: bold;"></p>
             </form>
 
-            <!-- Contenedor de Éxito y Botón de Descarga que aparece tras inscribirse -->
+            <!-- Contenedor de Éxito y Botón de Descarga directa -->
             <div id="contenedorExito" style="display: none; grid-column: 1 / -1; background-color: #e8f5e9; border: 2px solid #4caf50; padding: 30px; border-radius: 8px; text-align: center; margin-top: 20px;">
                 <h3 style="color: #2e7d32; margin-bottom: 10px; font-size: 1.5rem;">🎉 ¡Inscripción Realizada con Éxito!</h3>
                 <p style="color: #1b5e20; font-size: 1.05rem; margin-bottom: 20px;">
                     Los datos del estudiante han quedado registrados correctamente en el sistema institucional del <strong>INEB Centro Cajolá</strong>. Ya se encuentra inscrito oficialmente.
                 </p>
                 <button type="button" id="btnDescargarPDF" class="btn" style="background-color: var(--primary-blue); font-size: 1.05rem; padding: 14px 28px;">
-                    🖨️ Descargar Comprobante Oficial y Reglamento (PDF)
+                    📥 Descargar Comprobante Oficial y Reglamento (PDF)
                 </button>
             </div>
         </div>
     </section>
 
-    <!-- Plantilla que se llenará con los datos del estudiante para generar el PDF -->
-    <div id="plantillaPDF" style="display: none; width: 100%; max-width: 800px; margin: 0 auto; padding: 40px; font-family: Arial, sans-serif; color: #111; line-height: 1.6; background-color: #ffffff;">
+    <!-- Plantilla Oculta pero lista para renderizar en PDF directamente -->
+    <div id="plantillaPDF" style="display: none; width: 700px; padding: 35px; font-family: Arial, sans-serif; color: #111; line-height: 1.6; background-color: #ffffff;">
         <div style="text-align: center; border-bottom: 3px solid #d90429; padding-bottom: 15px; margin-bottom: 25px;">
             <h2 style="color: #0a192f; margin: 0; font-size: 22px;">INEB CENTRO CAJOLÁ</h2>
             <p style="margin: 5px 0; font-size: 13px; color: #555;">Municipio de Cajolá, Departamento de Quetzaltenango</p>
@@ -380,7 +361,7 @@
             mensajeEstado.style.color = '#333';
             mensajeEstado.innerHTML = 'Enviando información...';
 
-            // Capturamos los valores del formulario
+            // Capturamos los datos
             const nombreEstudiante = form.querySelector('[name="Nombre_del_estudiante"]').value;
             const codigoEstudiante = form.querySelector('[name="codigo_del_estudiante"]').value;
             const gradoEstudiante = form.querySelector('[name="Grado_a_cursar"]').value;
@@ -390,7 +371,6 @@
                 year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
             });
 
-            // Guardamos temporalmente para el PDF
             datosInscripcionActual = {
                 nombreEstudiante, codigoEstudiante, gradoEstudiante, nombreEncargado, dpiEncargado, fechaActual
             };
@@ -408,8 +388,8 @@
             })
             .then(() => {
                 mensajeEstado.style.display = 'none';
-                form.style.display = 'none'; // Ocultamos el formulario tras inscribirse
-                contenedorExito.style.display = 'block'; // Mostramos el mensaje de éxito y el botón de descarga
+                form.style.display = 'none'; 
+                contenedorExito.style.display = 'block';
                 contenedorExito.scrollIntoView({ behavior: 'smooth' });
             })
             .catch(error => {
@@ -422,8 +402,13 @@
             });
         });
 
-        // Evento que inyecta los datos y abre el menú del sistema para guardar como PDF sin errores
+        // DESCARGA DIRECTA DE ARCHIVO PDF AL PRESIONAR EL BOTÓN
         document.getElementById('btnDescargarPDF').addEventListener('click', function () {
+            const btnDescarga = document.getElementById('btnDescargarPDF');
+            btnDescarga.innerText = '⏳ Descargando Comprobante...';
+            btnDescarga.disabled = true;
+
+            // Llenamos los datos en la plantilla
             document.getElementById('pdfNombreEstudiante').innerText = datosInscripcionActual.nombreEstudiante || 'N/A';
             document.getElementById('pdfCodigoEstudiante').innerText = datosInscripcionActual.codigoEstudiante || 'N/A';
             document.getElementById('pdfGrado').innerText = datosInscripcionActual.gradoEstudiante || 'N/A';
@@ -431,8 +416,32 @@
             document.getElementById('pdfDpiEncargado').innerText = datosInscripcionActual.dpiEncargado || 'N/A';
             document.getElementById('pdfFecha').innerText = datosInscripcionActual.fechaActual || 'N/A';
 
-            // Abre la función de impresión limpia del navegador (Guardar como PDF)
-            window.print();
+            const elementoPDF = document.getElementById('plantillaPDF');
+
+            const opciones = {
+                margin:       10,
+                filename:     `Comprobante_Inscripcion_${datosInscripcionActual.nombreEstudiante || 'Estudiante'}.pdf`,
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { 
+                    scale: 2, 
+                    useCORS: true,
+                    // onclone hace visible la plantilla solo en la captura para que NUNCA salga en blanco
+                    onclone: function(clonedDoc) {
+                        clonedDoc.getElementById('plantillaPDF').style.display = 'block';
+                    }
+                },
+                jsPDF:        { unit: 'mm', format: 'letter', orientation: 'portrait' }
+            };
+
+            // Descarga automática inmediata
+            html2pdf().set(opciones).from(elementoPDF).save().then(() => {
+                btnDescarga.innerText = '📥 Descargar Comprobante Oficial y Reglamento (PDF)';
+                btnDescarga.disabled = false;
+            }).catch(err => {
+                console.error('Error en descarga:', err);
+                btnDescarga.innerText = '📥 Descargar Comprobante Oficial y Reglamento (PDF)';
+                btnDescarga.disabled = false;
+            });
         });
     </script>
     
