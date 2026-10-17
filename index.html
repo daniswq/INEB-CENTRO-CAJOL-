@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Librería para generar el PDF de comprobante de forma segura y limpia -->
+    <!-- Librería para generar el PDF de comprobante y reglamento de forma segura -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <style>
@@ -22,7 +22,7 @@
             footer, .footer {
                 text-align: left !important;
                 padding-left: 20px !important;
-                padding-right: 90px !important;
+                padding-right: 90px !important; /* Espacio libre a la derecha para los botones flotantes */
                 padding-bottom: 30px !important;
             }
             footer p, .footer p {
@@ -52,6 +52,7 @@
         </div>
     </header>
 
+   <!-- Sección de Bienvenida (Hero) con Foto de Fondo y botón único -->
     <section id="inicio" class="hero">
         <div class="hero-content container">
             <h2>INEB Formando líderes del futuro</h2>
@@ -235,10 +236,10 @@
             <form id="formInscripcion" class="contact-form">
                 <label style="display:block; text-align:left; font-size:0.9rem; font-weight:600; margin-bottom:5px; color:#0a192f;">DATOS DEL ESTUDIANTE:</label>
                 <input type="text" name="Nombre_del_estudiante" placeholder="Nombre completo del estudiante" required>
-                <div class="input-tooltip-container">
-                    <input type="text" name="codigo_del_estudiante" placeholder="Código personal" required>
-                    <span class="tooltip-text">💡 Si no sabes tu código personal, tu maestro guía o maestro de grado te lo puede proporcionar.</span>
-                </div>
+               <div class="input-tooltip-container">
+               <input type="text" name="codigo_del_estudiante" placeholder="Código personal" required>
+               <span class="tooltip-text">💡 Si no sabes tu código personal, tu maestro guía o maestro de grado te lo puede proporcionar.</span>
+            </div>
                 <input type="text" name="Edad_del_estudiante" placeholder="Edad del estudiante" required>
                 
                 <label style="display:block; text-align:left; font-size:0.9rem; font-weight:600; margin-bottom:5px; color:#0a192f;">Fecha de nacimiento del estudiante:</label>
@@ -261,7 +262,7 @@
                 <p id="mensajeEstado" style="display: none; margin-top: 15px; padding: 10px; border-radius: 4px; text-align: center; font-weight: bold;"></p>
             </form>
 
-            <!-- Contenedor de Éxito y Botón de Descarga -->
+            <!-- Contenedor de Éxito y Botón de Descarga de Comprobante (Oculto inicialmente) -->
             <div id="contenedorExito" style="display: none; grid-column: 1 / -1; background-color: #e8f5e9; border: 2px solid #4caf50; padding: 30px; border-radius: 8px; text-align: center; margin-top: 20px;">
                 <h3 style="color: #2e7d32; margin-bottom: 10px; font-size: 1.5rem;">🎉 ¡Inscripción Realizada con Éxito!</h3>
                 <p style="color: #1b5e20; font-size: 1.05rem; margin-bottom: 20px;">
@@ -274,8 +275,8 @@
         </div>
     </section>
 
-    <!-- Plantilla Oculta para PDF (Invisibilizada fuera de pantalla para captura directa) -->
-    <div id="plantillaPDF" style="display: none; position: absolute; left: -9999px; top: 0; width: 750px; padding: 40px; font-family: Arial, sans-serif; color: #111; line-height: 1.6; background-color: #ffffff;">
+    <!-- Plantilla de PDF (Posicionada permanentemente fuera de pantalla para captura exacta sin hoja en blanco) -->
+    <div id="plantillaPDF" style="position: absolute; left: -9999px; top: -9999px; width: 750px; padding: 40px; font-family: Arial, sans-serif; color: #111; line-height: 1.6; background-color: #ffffff;">
         <div style="text-align: center; border-bottom: 3px solid #d90429; padding-bottom: 15px; margin-bottom: 25px;">
             <h2 style="color: #0a192f; margin: 0; font-size: 22px;">INEB CENTRO CAJOLÁ</h2>
             <p style="margin: 5px 0; font-size: 13px; color: #555;">Municipio de Cajolá, Departamento de Quetzaltenango</p>
@@ -363,16 +364,17 @@
             mensajeEstado.style.color = '#333';
             mensajeEstado.innerHTML = 'Enviando información...';
 
-            // Captura de datos
+            // Capturamos los valores del formulario para el PDF
             const nombreEstudiante = form.querySelector('[name="Nombre_del_estudiante"]').value;
             const codigoEstudiante = form.querySelector('[name="codigo_del_estudiante"]').value;
-            const gradoEstudiante  = form.querySelector('[name="Grado_a_cursar"]').value;
-            const nombreEncargado  = form.querySelector('[name="Nombre_encargado"]').value;
-            const dpiEncargado     = form.querySelector('[name="dpi_del_encargado"]').value;
-            const fechaActual      = new Date().toLocaleDateString('es-GT', {
+            const gradoEstudiante = form.querySelector('[name="Grado_a_cursar"]').value;
+            const nombreEncargado = form.querySelector('[name="Nombre_encargado"]').value;
+            const dpiEncargado = form.querySelector('[name="dpi_del_encargado"]').value;
+            const fechaActual = new Date().toLocaleDateString('es-GT', {
                 year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
             });
 
+            // Guardamos temporalmente los datos
             datosInscripcionActual = {
                 nombreEstudiante, codigoEstudiante, gradoEstudiante, nombreEncargado, dpiEncargado, fechaActual
             };
@@ -390,8 +392,8 @@
             })
             .then(() => {
                 mensajeEstado.style.display = 'none';
-                form.style.display = 'none';
-                contenedorExito.style.display = 'block';
+                form.style.display = 'none'; // Ocultamos el formulario para evitar reenvíos
+                contenedorExito.style.display = 'block'; // Mostramos el aviso de éxito y el botón de descarga
                 contenedorExito.scrollIntoView({ behavior: 'smooth' });
             })
             .catch(error => {
@@ -404,48 +406,42 @@
             });
         });
 
-        // Generación y descarga optimizada sin páginas en blanco
+        // Evento para generar y descargar el PDF personalizado evitando hojas en blanco
         document.getElementById('btnDescargarPDF').addEventListener('click', function () {
             const btnDescarga = document.getElementById('btnDescargarPDF');
-            btnDescarga.innerText = '⏳ Generando documento...';
+            btnDescarga.innerText = '⏳ Generando PDF...';
             btnDescarga.disabled = true;
 
-            // Inserción de información
+            // Llenamos la plantilla oculta con los datos capturados
             document.getElementById('pdfNombreEstudiante').innerText = datosInscripcionActual.nombreEstudiante || 'N/A';
             document.getElementById('pdfCodigoEstudiante').innerText = datosInscripcionActual.codigoEstudiante || 'N/A';
-            document.getElementById('pdfGrado').innerText            = datosInscripcionActual.gradoEstudiante || 'N/A';
+            document.getElementById('pdfGrado').innerText = datosInscripcionActual.gradoEstudiante || 'N/A';
             document.getElementById('pdfNombreEncargado').innerText = datosInscripcionActual.nombreEncargado || 'N/A';
-            document.getElementById('pdfDpiEncargado').innerText    = datosInscripcionActual.dpiEncargado || 'N/A';
-            document.getElementById('pdfFecha').innerText           = datosInscripcionActual.fechaActual || 'N/A';
+            document.getElementById('pdfDpiEncargado').innerText = datosInscripcionActual.dpiEncargado || 'N/A';
+            document.getElementById('pdfFecha').innerText = datosInscripcionActual.fechaActual || 'N/A';
 
             const elementoPDF = document.getElementById('plantillaPDF');
-            elementoPDF.style.display = 'block'; // Activa el bloque fuera de pantalla
 
             const opciones = {
                 margin:       10,
                 filename:     `Comprobante_Inscripcion_${datosInscripcionActual.nombreEstudiante || 'Estudiante'}.pdf`,
                 image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2, useCORS: true, logging: false },
+                html2canvas:  { scale: 2, useCORS: true, scrollY: 0 },
                 jsPDF:        { unit: 'mm', format: 'letter', orientation: 'portrait' }
             };
 
-            // Pequeña pausa para asegurar el renderizado de la tipografía e información
-            setTimeout(() => {
-                html2pdf().set(opciones).from(elementoPDF).save().then(() => {
-                    elementoPDF.style.display = 'none';
-                    btnDescarga.innerText = '📄 Descargar Comprobante Oficial y Reglamento (PDF)';
-                    btnDescarga.disabled = false;
-                }).catch(err => {
-                    console.error('Error al generar PDF:', err);
-                    elementoPDF.style.display = 'none';
-                    btnDescarga.innerText = '📄 Descargar Comprobante Oficial y Reglamento (PDF)';
-                    btnDescarga.disabled = false;
-                });
-            }, 300);
+            html2pdf().set(opciones).from(elementoPDF).save().then(() => {
+                btnDescarga.innerText = '📄 Descargar Comprobante Oficial y Reglamento (PDF)';
+                btnDescarga.disabled = false;
+            }).catch(err => {
+                console.error('Error al generar PDF:', err);
+                btnDescarga.innerText = '📄 Descargar Comprobante Oficial y Reglamento (PDF)';
+                btnDescarga.disabled = false;
+            });
         });
     </script>
     
-    <a href="https://m.me/103082308286300?text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20las%20inscripciones%20en%20el%20INEB%20Centro%20Cajol%C3%A1." 
+    <a href="https://m.me/103082308286300?text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20las%20inscripciones%20en%20el%20INEB%20Centro%20Cajolá." 
        class="btn-messenger" 
        target="_blank" 
        rel="noopener noreferrer" 
