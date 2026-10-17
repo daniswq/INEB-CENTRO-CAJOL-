@@ -27,9 +27,12 @@
             }
         }
 
-        /* CONFIGURACIÓN Mágica para Impresión y PDF: 
-           Oculta todo lo de la página web al imprimir y deja VISIBLE únicamente el comprobante. */
+        /* CONFIGURACIÓN EXACTA PARA QUE SALGA EN UNA SOLA HOJA PDF */
         @media print {
+            @page {
+                size: letter;
+                margin: 10mm;
+            }
             body * {
                 visibility: hidden !important;
             }
@@ -41,10 +44,12 @@
                 left: 0 !important;
                 top: 0 !important;
                 width: 100% !important;
+                max-width: 100% !important;
                 margin: 0 !important;
-                padding: 15px !important;
+                padding: 5px !important;
                 background: #ffffff !important;
                 display: block !important;
+                font-size: 11px !important; /* Ajusta el texto para que compacte perfecto en una sola hoja */
             }
         }
     </style>
@@ -290,36 +295,36 @@
         </div>
     </section>
 
-    <!-- Plantilla del Comprobante (Oculta normalmente, se muestra perfectamente al generar el PDF) -->
-    <div id="plantillaPDF" style="display: none; width: 100%; max-width: 800px; margin: 0 auto; padding: 30px; font-family: Arial, sans-serif; color: #111; line-height: 1.6; background-color: #ffffff;">
-        <div style="text-align: center; border-bottom: 3px solid #d90429; padding-bottom: 15px; margin-bottom: 25px;">
-            <h2 style="color: #0a192f; margin: 0; font-size: 22px;">INEB CENTRO CAJOLÁ</h2>
-            <p style="margin: 5px 0; font-size: 13px; color: #555;">Municipio de Cajolá, Departamento de Quetzaltenango</p>
-            <h3 style="color: #d90429; margin-top: 10px; font-size: 16px;">CONSTANCIA OFICIAL DE INSCRIPCIÓN Y REGLAMENTO ESCOLAR</h3>
+    <!-- Plantilla del Comprobante Ajustada para caber perfectamente en una hoja -->
+    <div id="plantillaPDF" style="display: none; width: 100%; max-width: 800px; margin: 0 auto; padding: 15px; font-family: Arial, sans-serif; color: #111; line-height: 1.35; background-color: #ffffff;">
+        <div style="text-align: center; border-bottom: 2px solid #d90429; padding-bottom: 8px; margin-bottom: 12px;">
+            <h2 style="color: #0a192f; margin: 0; font-size: 18px;">INEB CENTRO CAJOLÁ</h2>
+            <p style="margin: 2px 0; font-size: 11px; color: #555;">Municipio de Cajolá, Departamento de Quetzaltenango</p>
+            <h3 style="color: #d90429; margin-top: 6px; font-size: 13px;">CONSTANCIA OFICIAL DE INSCRIPCIÓN Y REGLAMENTO ESCOLAR</h3>
         </div>
 
-        <div style="background-color: #f8f9fa; border-left: 5px solid #0a192f; padding: 15px; margin-bottom: 25px; border-radius: 4px;">
-            <p style="margin: 5px 0; font-size: 14px;"><strong>Estado del Trámite:</strong> <span style="color: #2e7d32; font-weight: bold;">INSCRITO OFICIALMENTE</span></p>
-            <p style="margin: 5px 0; font-size: 14px;"><strong>Estudiante:</strong> <span id="pdfNombreEstudiante">-</span></p>
-            <p style="margin: 5px 0; font-size: 14px;"><strong>Código Personal:</strong> <span id="pdfCodigoEstudiante">-</span></p>
-            <p style="margin: 5px 0; font-size: 14px;"><strong>Grado a Cursar:</strong> <span id="pdfGrado">-</span></p>
-            <p style="margin: 5px 0; font-size: 14px;"><strong>Padre / Tutor Responsable:</strong> <span id="pdfNombreEncargado">-</span></p>
-            <p style="margin: 5px 0; font-size: 14px;"><strong>DPI del Encargado:</strong> <span id="pdfDpiEncargado">-</span></p>
-            <p style="margin: 5px 0; font-size: 14px;"><strong>Fecha de Registro:</strong> <span id="pdfFecha">-</span></p>
+        <div style="background-color: #f8f9fa; border-left: 4px solid #0a192f; padding: 10px; margin-bottom: 12px; border-radius: 4px;">
+            <p style="margin: 3px 0; font-size: 12px;"><strong>Estado del Trámite:</strong> <span style="color: #2e7d32; font-weight: bold;">INSCRITO OFICIALMENTE</span></p>
+            <p style="margin: 3px 0; font-size: 12px;"><strong>Estudiante:</strong> <span id="pdfNombreEstudiante">-</span></p>
+            <p style="margin: 3px 0; font-size: 12px;"><strong>Código Personal:</strong> <span id="pdfCodigoEstudiante">-</span></p>
+            <p style="margin: 3px 0; font-size: 12px;"><strong>Grado a Cursar:</strong> <span id="pdfGrado">-</span></p>
+            <p style="margin: 3px 0; font-size: 12px;"><strong>Padre / Tutor Responsable:</strong> <span id="pdfNombreEncargado">-</span></p>
+            <p style="margin: 3px 0; font-size: 12px;"><strong>DPI del Encargado:</strong> <span id="pdfDpiEncargado">-</span></p>
+            <p style="margin: 3px 0; font-size: 12px;"><strong>Fecha de Registro:</strong> <span id="pdfFecha">-</span></p>
         </div>
 
-        <div style="font-size: 11.5px; text-align: justify; margin-bottom: 30px;">
-            <p style="margin-bottom: 10px;"><strong>AVISO OFICIAL:</strong> Por medio del presente documento, se notifica que el expediente digital ha sido procesado exitosamente. El estudiante queda formalmente registrado en las bases de datos del establecimiento educativo.</p>
+        <div style="font-size: 10.5px; text-align: justify; margin-bottom: 15px;">
+            <p style="margin-bottom: 6px;"><strong>AVISO OFICIAL:</strong> Por medio del presente documento, se notifica que el expediente digital ha sido procesado exitosamente. El estudiante queda formalmente registrado en las bases de datos del establecimiento educativo.</p>
             
-            <h4 style="color: #0a192f; border-bottom: 1px solid #ccc; padding-bottom: 4px; margin: 15px 0 8px 0; font-size: 13px;">REGLAMENTO INTERNO Y DE CONVIVENCIA ESCOLAR</h4>
-            <p style="margin-bottom: 6px;"><strong>1. Uniforme y Presentación:</strong> El uso del uniforme oficial es obligatorio en jornadas escolares y actividades cívicas.</p>
-            <p style="margin-bottom: 6px;"><strong>2. Disciplina y Respeto:</strong> Respeto absoluto hacia autoridades, catedráticos y compañeros. Queda prohibido el uso de celulares en horas de clase sin autorización.</p>
-            <p style="margin-bottom: 6px;"><strong>3. Asistencia:</strong> La puntualidad es indispensable. Toda inasistencia debe justificarse debidamente ante la dirección.</p>
-            <p style="margin-bottom: 6px;"><strong>4. Cuidado de Instalaciones:</strong> Velar por el buen uso del mobiliario, equipo de computación e infraestructura escolar.</p>
+            <h4 style="color: #0a192f; border-bottom: 1px solid #ccc; padding-bottom: 2px; margin: 8px 0 4px 0; font-size: 11.5px;">REGLAMENTO INTERNO Y DE CONVIVENCIA ESCOLAR</h4>
+            <p style="margin-bottom: 3px;"><strong>1. Uniforme y Presentación:</strong> El uso del uniforme oficial es obligatorio en jornadas escolares y actividades cívicas.</p>
+            <p style="margin-bottom: 3px;"><strong>2. Disciplina y Respeto:</strong> Respeto absoluto hacia autoridades, catedráticos y compañeros. Queda prohibido el uso de celulares en horas de clase sin autorización.</p>
+            <p style="margin-bottom: 3px;"><strong>3. Asistencia:</strong> La puntualidad es indispensable. Toda inasistencia debe justificarse debidamente ante la dirección.</p>
+            <p style="margin-bottom: 3px;"><strong>4. Cuidado de Instalaciones:</strong> Velar por el buen uso del mobiliario, equipo de computación e infraestructura escolar.</p>
         </div>
 
-        <div style="margin-top: 50px; text-align: center; font-size: 12px;">
-            <p style="margin-bottom: 30px;">_____________________________________</p>
+        <div style="margin-top: 25px; text-align: center; font-size: 11px;">
+            <p style="margin-bottom: 15px;">_____________________________________</p>
             <p><strong>Dirección y Comisión de Admisiones</strong><br>INEB Centro Cajolá</p>
         </div>
     </div>
@@ -405,7 +410,7 @@
             })
             .then(() => {
                 mensajeEstado.style.display = 'none';
-                form.style.display = 'none'; 
+                form.style.display = 'none';
                 contenedorExito.style.display = 'block';
                 contenedorExito.scrollIntoView({ behavior: 'smooth' });
             })
@@ -419,7 +424,6 @@
             });
         });
 
-        // Al hacer clic, se rellenan los datos y se abre la opción de Guardar como PDF
         document.getElementById('btnDescargarPDF').addEventListener('click', function () {
             document.getElementById('pdfNombreEstudiante').innerText = datosInscripcionActual.nombreEstudiante || 'N/A';
             document.getElementById('pdfCodigoEstudiante').innerText = datosInscripcionActual.codigoEstudiante || 'N/A';
@@ -428,7 +432,6 @@
             document.getElementById('pdfDpiEncargado').innerText    = datosInscripcionActual.dpiEncargado || 'N/A';
             document.getElementById('pdfFecha').innerText           = datosInscripcionActual.fechaActual || 'N/A';
 
-            // Activa la orden de impresión nativa (el usuario selecciona "Guardar como PDF")
             window.print();
         });
     </script>
