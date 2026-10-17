@@ -11,8 +11,11 @@
     <title>INEB CENTRO CAJOLÁ | Bienvenidos</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Librería para generar el PDF de comprobante y reglamento de forma segura en el navegador -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <style>
         @media (max-width: 768px) {
@@ -205,12 +208,13 @@
                    rel="noopener noreferrer" 
                    class="btn" 
                    style="background-color: #0070ba; color: #ffffff; display: inline-flex; align-items: center; justify-content: center; width: 320px; max-width: 100%; box-sizing: border-box; text-align: center;">
-                    Donar con PayPal o Tarjeta
+                     Donar con PayPal o Tarjeta
                 </a>
 
                 <a href="https://wa.me/50249855548?text=Hola,%20quisiera%20coordinar%20una%20donaci%C3%B3n%20para%20el%20INEB%20Centro%20Cajol%C3%A1." 
                    class="btn" 
                    target="_blank" 
+                   rel="noopener noreferrer" 
                    style="background-color: #d90429; color: #ffffff; display: inline-flex; align-items: center; justify-content: center; width: 320px; max-width: 100%; box-sizing: border-box; text-align: center;">
                      Coordinar Donación por WhatsApp
                 </a>
@@ -257,8 +261,53 @@
                 <button type="submit" id="btnEnviar" class="btn">Inscribirse</button>
                 <p id="mensajeEstado" style="display: none; margin-top: 15px; padding: 10px; border-radius: 4px; text-align: center; font-weight: bold;"></p>
             </form>
+
+            <!-- Contenedor de Éxito y Botón de Descarga de Comprobante (Oculto inicialmente) -->
+            <div id="contenedorExito" style="display: none; grid-column: 1 / -1; background-color: #e8f5e9; border: 2px solid #4caf50; padding: 30px; border-radius: 8px; text-align: center; margin-top: 20px;">
+                <h3 style="color: #2e7d32; margin-bottom: 10px; font-size: 1.5rem;">🎉 ¡Inscripción Realizada con Éxito!</h3>
+                <p style="color: #1b5e20; font-size: 1.05rem; margin-bottom: 20px;">
+                    Los datos del estudiante han quedado registrados correctamente en el sistema institucional del <strong>INEB Centro Cajolá</strong>. Ya se encuentra inscrito oficialmente.
+                </p>
+                <button type="button" id="btnDescargarPDF" class="btn" style="background-color: var(--primary-blue); font-size: 1.05rem; padding: 14px 28px;">
+                    📄 Descargar Comprobante Oficial y Reglamento (PDF)
+                </button>
+            </div>
         </div>
     </section>
+
+    <!-- Plantilla Oculta para Generar el Comprobante y Reglamento en PDF con los datos reales -->
+    <div id="plantillaPDF" style="display: none; padding: 40px; font-family: Arial, sans-serif; color: #111; line-height: 1.6; background-color: #ffffff;">
+        <div style="text-align: center; border-bottom: 3px solid #d90429; padding-bottom: 15px; margin-bottom: 25px;">
+            <h2 style="color: #0a192f; margin: 0; font-size: 22px;">INEB CENTRO CAJOLÁ</h2>
+            <p style="margin: 5px 0; font-size: 13px; color: #555;">Municipio de Cajolá, Departamento de Quetzaltenango</p>
+            <h3 style="color: #d90429; margin-top: 10px; font-size: 16px;">CONSTANCIA OFICIAL DE INSCRIPCIÓN Y REGLAMENTO ESCOLAR</h3>
+        </div>
+
+        <div style="background-color: #f8f9fa; border-left: 5px solid #0a192f; padding: 15px; margin-bottom: 25px; border-radius: 4px;">
+            <p style="margin: 5px 0; font-size: 14px;"><strong>Estado del Trámite:</strong> <span style="color: #2e7d32; font-weight: bold;">INSCRITO OFICIALMENTE</span></p>
+            <p style="margin: 5px 0; font-size: 14px;"><strong>Estudiante:</strong> <span id="pdfNombreEstudiante">-</span></p>
+            <p style="margin: 5px 0; font-size: 14px;"><strong>Código Personal:</strong> <span id="pdfCodigoEstudiante">-</span></p>
+            <p style="margin: 5px 0; font-size: 14px;"><strong>Grado a Cursar:</strong> <span id="pdfGrado">-</span></p>
+            <p style="margin: 5px 0; font-size: 14px;"><strong>Padre / Tutor Responsable:</strong> <span id="pdfNombreEncargado">-</span></p>
+            <p style="margin: 5px 0; font-size: 14px;"><strong>DPI del Encargado:</strong> <span id="pdfDpiEncargado">-</span></p>
+            <p style="margin: 5px 0; font-size: 14px;"><strong>Fecha de Registro:</strong> <span id="pdfFecha">-</span></p>
+        </div>
+
+        <div style="font-size: 11.5px; text-align: justify; margin-bottom: 30px;">
+            <p style="margin-bottom: 10px;"><strong>AVISO OFICIAL:</strong> Por medio del presente documento, se notifica que el expediente digital ha sido procesado exitosamente. El estudiante queda formalmente registrado en las bases de datos del establecimiento educativo.</p>
+            
+            <h4 style="color: #0a192f; border-bottom: 1px solid #ccc; padding-bottom: 4px; margin: 15px 0 8px 0; font-size: 13px;">REGLAMENTO INTERNO Y DE CONVIVENCIA ESCOLAR</h4>
+            <p style="margin-bottom: 6px;"><strong>1. Uniforme y Presentación:</strong> El uso del uniforme oficial es obligatorio en jornadas escolares y actividades cívicas.</p>
+            <p style="margin-bottom: 6px;"><strong>2. Disciplina y Respeto:</strong> Respeto absoluto hacia autoridades, catedráticos y compañeros. Queda prohibido el uso de celulares en horas de clase sin autorización.</p>
+            <p style="margin-bottom: 6px;"><strong>3. Asistencia:</strong> La puntualidad es indispensable. Toda inasistencia debe justificarse debidamente ante la dirección.</p>
+            <p style="margin-bottom: 6px;"><strong>4. Cuidado de Instalaciones:</strong> Velar por el buen uso del mobiliario, equipo de computación e infraestructura escolar.</p>
+        </div>
+
+        <div style="margin-top: 50px; text-align: center; font-size: 12px;">
+            <p style="margin-bottom: 30px;">_____________________________________</p>
+            <p><strong>Dirección y Comisión de Admisiones</strong><br>INEB Centro Cajolá</p>
+        </div>
+    </div>
 
     <footer>
         <div class="container">
@@ -301,6 +350,8 @@
         const form = document.getElementById('formInscripcion');
         const btnEnviar = document.getElementById('btnEnviar');
         const mensajeEstado = document.getElementById('mensajeEstado');
+        const contenedorExito = document.getElementById('contenedorExito');
+        let datosInscripcionActual = {};
 
         form.addEventListener('submit', e => {
             e.preventDefault();
@@ -312,6 +363,21 @@
             mensajeEstado.style.backgroundColor = '#e9ecef';
             mensajeEstado.style.color = '#333';
             mensajeEstado.innerHTML = 'Enviando información...';
+
+            // Capturamos los valores del formulario para el PDF
+            const nombreEstudiante = form.querySelector('[name="Nombre_del_estudiante"]').value;
+            const codigoEstudiante = form.querySelector('[name="codigo_del_estudiante"]').value;
+            const gradoEstudiante = form.querySelector('[name="Grado_a_cursar"]').value;
+            const nombreEncargado = form.querySelector('[name="Nombre_encargado"]').value;
+            const dpiEncargado = form.querySelector('[name="dpi_del_encargado"]').value;
+            const fechaActual = new Date().toLocaleDateString('es-GT', {
+                year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
+            });
+
+            // Guardamos temporalmente los datos
+            datosInscripcionActual = {
+                nombreEstudiante, codigoEstudiante, gradoEstudiante, nombreEncargado, dpiEncargado, fechaActual
+            };
 
             const formData = new FormData(form);
             const data = new URLSearchParams(formData);
@@ -325,12 +391,10 @@
                 body: data
             })
             .then(() => {
-                mensajeEstado.style.backgroundColor = '#d4edda';
-                mensajeEstado.style.color = '#155724';
-                mensajeEstado.innerHTML = '¡Inscripción registrada exitosamente!';
-                btnEnviar.disabled = false;
-                btnEnviar.innerText = 'Inscribirse';
-                form.reset();
+                mensajeEstado.style.display = 'none';
+                form.style.display = 'none'; // Ocultamos el formulario para evitar reenvíos
+                contenedorExito.style.display = 'block'; // Mostramos el aviso de éxito y el botón de descarga
+                contenedorExito.scrollIntoView({ behavior: 'smooth' });
             })
             .catch(error => {
                 mensajeEstado.style.backgroundColor = '#f8d7da';
@@ -339,6 +403,32 @@
                 btnEnviar.disabled = false;
                 btnEnviar.innerText = 'Inscribirse';
                 console.error('Error!', error);
+            });
+        });
+
+        // Evento para generar y descargar el PDF personalizado al hacer clic en el botón de éxito
+        document.getElementById('btnDescargarPDF').addEventListener('click', function () {
+            // Llenamos la plantilla oculta con los datos capturados
+            document.getElementById('pdfNombreEstudiante').innerText = datosInscripcionActual.nombreEstudiante || 'N/A';
+            document.getElementById('pdfCodigoEstudiante').innerText = datosInscripcionActual.codigoEstudiante || 'N/A';
+            document.getElementById('pdfGrado').innerText = datosInscripcionActual.gradoEstudiante || 'N/A';
+            document.getElementById('pdfNombreEncargado').innerText = datosInscripcionActual.nombreEncargado || 'N/A';
+            document.getElementById('pdfDpiEncargado').innerText = datosInscripcionActual.dpiEncargado || 'N/A';
+            document.getElementById('pdfFecha').innerText = datosInscripcionActual.fechaActual || 'N/A';
+
+            const elementoPDF = document.getElementById('plantillaPDF');
+            elementoPDF.style.display = 'block'; // Lo mostramos brevemente para procesarlo
+
+            const opciones = {
+                margin:       10,
+                filename:     `Comprobante_Inscripcion_${datosInscripcionActual.nombreEstudiante || 'Estudiante'}.pdf`,
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'mm', format: 'letter', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opciones).from(elementoPDF).save().then(() => {
+                elementoPDF.style.display = 'none'; // Volvemos a ocultarlo
             });
         });
     </script>
